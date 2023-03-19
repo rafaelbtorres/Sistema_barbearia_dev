@@ -1,0 +1,98 @@
+.index{
+    font-family: 'Montserrat', sans-serif;
+}
+
+.sb-navbar .nav-item{
+    padding: 0 10px;
+    font-size: 14px;
+}
+
+.sb-navbar .logo{
+    width: 140px;
+}
+
+.sb-navbar .nav-item .nav-link{
+    color: var(--white);
+}
+
+.sb-navbar .nav-item .nav-link:hover{
+    color: gray;
+}
+
+.sb-navbar .navbar-toggler i{
+    color: var(--white);
+    font-size: 24px;
+}
+
+.sb-navbar .navbar-toggler[aria-expanded="true"] .icon-close{
+    display: table;
+}
+
+.sb-navbar .navbar-toggler[aria-expanded="false"] .icon-close{
+	display: none;
+}
+
+.sb-navbar .navbar-toggler[aria-expanded="true"] .icon-open{
+	display: none;
+}
+
+.sb-navbar .navbar-toggler[aria-expanded="false"] .icon-open{
+    display: table;
+}
+
+.header-index{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    height: 100vh;
+    width: 100%;
+
+    background-image: url("../../assets/images/back-index-2.jpg");
+    background-repeat: no-repeat;
+}
+
+.header-index h3{
+    font-size: min(30px, 7vw);
+}
+
+.header-index h5{
+    font-size: min(22px, 6vw);
+}
+
+.content-index .sobre-img{
+    width: 100%;
+    height: auto;
+}
+
+.content-index p > span{
+    color: var(--secondary);
+}
+
+.content-index .vantagens{
+    text-align: center;
+}
+
+.content-index .vantagens img{
+    width: 100px;
+    height: auto;
+    text-align: center;
+}
+
+.content-index .colaboradores{
+    text-align: center;
+}
+
+.content-index .colaboradores img{
+    border-radius: 50%;
+    width: 100%;
+    height: auto;
+}
+
+.content-index .colaboradores .redes-sociais a{
+    color: #fff;
+    font-size: 30px;
+    text-decoration: none;
+}
+

@@ -1,0 +1,155 @@
+/* Small */
+@media screen and (max-width: 576px){
+    /* Registro */
+    .login{
+        display: flex;
+        align-items: center;
+    }
+
+    .registro{
+        display: flex;
+        align-items: center;
+    }
+
+    .registro_barbearia{
+        padding-top: 8%;
+        display: flex;
+        align-items: center;
+    }
+
+    .sb-navbar .logo{
+        width: 120px;
+    }
+
+    .gap-to-menu{
+        margin-top: max(110px, 8vh);
+    }
+
+    .area-cliente{
+        margin-top: 1rem;
+        justify-content: center;
+    }
+
+    .area-cliente-card .card-img-top{
+        min-height: 100%;
+    }
+    
+}
+
+/* Medium */
+@media screen and (max-width: 768px){
+    /* Registro */
+    #banner-registro,
+    #banner-registro-barbearia,
+    #banner-login{
+        display: none;
+    }
+
+    .header-index h5{
+        padding: 0 32px;
+    }
+
+    #header-text{
+        margin-bottom: 100px;
+    }
+
+    .barbearia .sb-float-right{
+        float: none;
+    }
+
+    .barbearia .sb-mt-5{
+        margin-top: 0;
+        margin-bottom: .5rem;
+    }
+
+    .barbearia .sb-mt-2{
+        margin-top: 0;
+    }
+
+    .barbearia #nome-barbearia{
+        margin-top: 2rem;
+    }
+
+    .barbearia #status{
+        display: block;
+        margin: 0 auto;
+    }
+
+    .barbearia .agendamento{
+        margin-top: 2rem !important;
+    }
+
+    .barbearia .informacoes{
+        text-align: center;
+    }
+
+    .area-cliente-card .card-img-top{
+        min-height: 100%;
+    }
+
+}
+
+/* Large */
+@media (min-width: 768px) and (max-width: 1200px){
+    .area-cliente-card .status-aberto,
+    .area-cliente-card .status-fechado{
+        text-align: center;
+
+        position: absolute;
+        top: 70px;
+    }
+}
+
+/* Large */
+@media (min-width: 992px) and (max-width: 1200px){
+    .area-cliente-card .status-aberto,
+    .area-cliente-card .status-fechado{
+        text-align: center;
+
+        position: absolute;
+        top: 107px;
+    }
+}
+
+/* Large */
+@media screen and (min-width: 1200px){
+    .area-cliente-card{
+        width: 17rem;
+    }
+
+    .area-cliente-card .status-aberto,
+    .area-cliente-card .status-fechado{
+        text-align: center;
+
+        position: absolute;
+        top: 146px;
+    }
+}
+
+/* Extra Large */
+@media screen and (min-width: 1400px){
+    /* Registro */
+    .registro img {
+        height: 100vh;
+        width: auto;
+    }
+
+    .registro_barbearia img{
+        height: 100vh;
+        width: auto;
+    }
+
+    .header-index{
+        height: 80vh;
+        background-size: 100%;
+    }
+}
+
+
+
+
+
+
+
+
+

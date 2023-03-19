@@ -1,0 +1,248 @@
+/* 
+    TODAS AS CLASSES GLOBAIS DESTE PROJETO TEM 
+    SB COM PRÉFIXO PARA DIFERENCIAR.
+*/
+
+/* Flex */
+.sb-content{
+    flex: 1;
+}
+
+.sb-flex-between{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Grid */
+.sb-grid{
+    display: grid;
+    grid-template-columns: 1fr max-content 1fr;
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    grid-column-gap: 12px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* Block */
+.sb-d-block{
+    display: block;
+}
+
+/* Width */
+.sb-full-width{
+    width: 100%;
+    height: auto;
+}
+
+.sb-full-screen{
+    width: 100%;
+    height: 100vh;
+}
+
+/* Fonts*/
+.sb-montserrat{
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* Font Size */
+.sb-text-sm{
+    font-size: 18px;
+}
+
+.sb-text-md{
+    font-size: 24px;
+}
+
+/* Texts Colors */
+.sb-txt-primary{
+    color: var(--primary) !important;
+}
+
+.sb-txt-secondary{
+    color: var(--secondary) !important;
+}
+
+.sb-txt-white{
+    color: var(--white) !important;
+}
+
+/* Text weight */
+.sb-w-400{
+    font-weight: 400;
+}
+
+.sb-w-600{
+    font-weight: 600;
+}
+
+.sb-w-700{
+    font-weight: 700;
+}
+
+.sb-w-900{
+    font-weight: 900;
+}
+
+/* Background */
+.sb-bg-primary{
+    background-color: var(--primary) !important;
+}
+
+.sb-bg-secondary{
+    background-color: var(--secondary);
+}
+
+.sb-bg-black{
+    background-color: var(--black);
+}
+
+/* Card */
+.sb-card{
+    background: var(--primary);
+    border: none;
+}
+
+/* Forms */
+.sb-form-input{
+    background-color: #121214;
+    border: #121214;
+    font-weight: 600;
+    color: var(--white);
+    box-shadow: var(--white);
+}
+
+.sb-form-input:focus{
+    border: 1px solid var(--white);
+    background-color: #121214;
+    color: var(--white);
+    box-shadow: 0 0 0.3em var(--white);
+}
+
+/* Mudar a cor do placeholder do sb-form-input */
+.sb-form-input::-webkit-input-placeholder {
+    color: rgba(255, 255, 255, .6);
+}
+  
+.sb-form-input:-moz-placeholder { /* Firefox 18- */
+    color: rgba(255, 255, 255, .6); 
+}
+
+.sb-form-input::-moz-placeholder {  /* Firefox 19+ */
+    color: rgba(255, 255, 255, .6); 
+}
+
+.sb-form-input:-ms-input-placeholder {  
+    color: rgba(255, 255, 255, .6); 
+}
+
+/* Buttons */
+.sb-btn-secondary{
+    background-color: var(--secondary);
+    color: var(--primary);
+    transition: all 0.3s ease-out;
+    text-align: center;
+}
+
+.sb-btn-secondary:hover{
+    background-color: transparent;
+    color: var(--secondary);
+    border: 1px solid var(--secondary);
+}
+
+.sb-btn-secondary-default{
+    background-color: var(--secondary);
+    color: var(--primary);
+    transition: all 0.3s ease-out;
+    text-align: center;
+}
+
+.sb-btn-outline-secondary{
+    background-color: transparent;
+    color: var(--secondary) !important;
+    border: 2px solid var(--secondary) !important;
+    transition: all 0.3s ease-out;
+    text-align: center;
+}
+
+.sb-btn-outline-secondary:hover{
+    background-color: var(--secondary);
+    color: var(--primary) !important;
+}
+
+.sb-btn-social-midia{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: transparent;
+    border: 2px solid var(--white);
+    color: var(--white);
+    text-align: center;
+}
+
+.sb-btn-social-midia i{
+    font-size: 20px;
+}
+
+.sb-btn-social-midia:hover{
+    color: var(--black);
+    background: var(--white);
+}
+
+.sb-btn-green{
+    background-color: var(--green);
+    color: var(--white);
+    transition: all 0.3s ease-out;
+    text-align: center;
+}
+
+.sb-btn-green:hover{
+    /* background-color: var(--white); */
+    color: var(--white);
+    /* border: 1px solid var(--green); */
+}
+
+/* Line */
+.sb-division-line{
+    width: 100%;
+    height: 1px;
+    padding-top: 5px;
+    border-bottom: solid 1px var(--white);
+}
+
+
+/* Descolar do menu fixo no topo*/
+.gap-to-menu{
+    margin-top: max(130px, 8vh);
+}
+
+/* Margin */
+.sb-mt-50{
+    margin-top: 50px;
+}
+
+.sb-no-margin{
+    margin: 0;
+}
+
+/* Behavior */
+.sb-d-none{
+    display: none;
+}
+
+.sb-opacity-0{
+    opacity: 0;
+}
+
+.sb-cursor-text{
+    cursor: text !important;
+}
+
+
+
+

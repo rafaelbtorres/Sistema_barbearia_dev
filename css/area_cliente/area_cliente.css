@@ -1,0 +1,104 @@
+.area-cliente{
+    margin-top: 2rem;
+    justify-content: center;
+}
+
+.area-cliente .card-title{
+    font-size: 22px;
+}
+
+.area-cliente-card .card-img-top{
+    min-height: 176px;
+}
+
+.area-cliente-card{
+    width: 100%;
+    height: auto;
+    background: var(--primary);
+    user-select: none;
+    transition: all 0.5s ease-out;
+}
+
+.area-cliente-card:hover{
+    border: 1px solid var(--white);
+    box-shadow: 0 0 0.5em var(--white);
+    transform: translateY(-15px);
+}
+
+.area-cliente-card .status-aberto,
+.area-cliente-card .status-fechado{
+    text-align: center;
+
+    position: absolute;
+    top: calc(100% - 258px);
+}
+
+.area-cliente-card .status-aberto{
+    background: var(--secondary);
+    width: 80px;
+}
+
+.area-cliente-card .status-fechado{
+    background: var(--red);
+    color: var(--white);
+    width: 86px;
+}
+
+.area-cliente .modal-content,
+#modal-perfil .modal-content,
+#modal-agendamentos .modal-content{
+    background: var(--primary);
+}
+
+.area-cliente-card .card-title{
+    font-size: 20px;
+}
+
+#modal-perfil .modal-content input{
+    cursor: not-allowed;
+}
+
+.btn-salvar{
+    text-align: right;
+}
+
+.swal2-cancel{
+    margin-right: 15px;
+}
+
+.btn-pesquisa {
+    box-sizing: border-box;
+    margin: auto;
+    border: solid 2px var(--secondary);
+    border-radius: 50%;
+    width: 60px; 
+    height: 60px;
+    line-height: 50px;
+    font: 26px Helvetica;
+    text-align: center;
+    background: var(--secondary);
+    cursor: pointer;
+    user-select: none;
+    transition: all .4s ease-in-out;
+    transform: scale(1);
+    box-shadow: 0 0 20px rgba(0, 0, 0, .4);
+    outline: none !important;
+}
+
+.btn-pesquisa i{
+    color: var(--black);
+}
+
+.btn-pesquisa:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, .8);
+    transform: scale(1.05);
+}
+ 
+.btn-position-fixed {
+    position: fixed;
+    bottom: 3%; 
+    right: 2%;
+    margin: auto;
+    z-index: 500;
+}
+

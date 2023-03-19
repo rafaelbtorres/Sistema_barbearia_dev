@@ -1,0 +1,21 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --primary: #202024;
+    --secondary: #FFC107;
+    --white: #fff;
+    --black: #000;
+    --green: #28a745;
+    --red: #ca2c2c;
+}
+
+#root{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
