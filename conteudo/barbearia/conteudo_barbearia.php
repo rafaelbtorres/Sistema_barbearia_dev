@@ -261,7 +261,6 @@
                                                     <div class='multisteps-form__content'>
                                                         <div class='mt-3 mb-3' >
                                                             <h5 class='multisteps-form__title sb-txt-white sb-w-500'>
-                                                                Nome: {$_SESSION['nome']}
                                                             </h5>
                                                             <div id='confirmar-servico-content'></div>
                                                         </div>
