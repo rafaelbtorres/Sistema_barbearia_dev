@@ -64,8 +64,8 @@
                 $('.timepicker').pickatime({
                     format: 'H:i',
                     // Delimitador de horas
-                    min: [$aberturaFormat[0], $aberturaFormat[1]],
-                    max: [$fechamentoFormat[0], $fechamentoFormat[1]]
+                    min: ['{$$aberturaFormat[0]}', '{$aberturaFormat[1]}'],
+                    max: ['{$fechamentoFormat[0]}', '{$fechamentoFormat[1]}']
                 })
             </script>
         ";
