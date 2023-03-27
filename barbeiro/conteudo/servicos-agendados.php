@@ -1,7 +1,11 @@
 <?php
-$conn = mysqli_connect("localhost", "root", "", "dbtcc");
+$conn = mysqli_connect("localhost", "root", "", "barbearia");
 $select = ("CALL PROC_AGENDAMENTOS_BARBEARIA('{$_SESSION['barbearia_id']}')");
 $query = $conn->query($select);
+
+require_once "./config/config.php";
+
+
 ?>
 <div class="container-fluid pt-5 pb-5">
     <div class="profile-header">
@@ -19,6 +23,8 @@ $query = $conn->query($select);
                         <th>Horario agendamento</th>
                         <th>Serviços solicitados</th>
                         <th>Nome do cliente</th>
+                        <th>Filial</th>
+                        <th>Cabeleleiro</th>
                         <th>Valor</th>
                         <th>Status</th>
                         <th>#</th>
@@ -28,6 +34,14 @@ $query = $conn->query($select);
             <tbody id="agend">
                 <?php
                 while ($dados = mysqli_fetch_assoc($query)) {
+                    
+                    $cab = $mysqli->query("SELECT * FROM cabeleleiros WHERE id = {$dados["cabeleleiro"]}");
+                    $cab = $cab->fetch_assoc();
+                    
+                    $filial = $mysqli->query("SELECT * FROM filial WHERE id = {$dados["filial"]}");
+                    $filial = $filial->fetch_assoc();
+
+
                 ?>
                     <tr>
                         <td><?php echo $dados['id_agendamento'] ?></td>
@@ -35,6 +49,9 @@ $query = $conn->query($select);
                         <td><?php echo $dados['horario_agendamento'] ?></td>
                         <td><?php echo $dados['nome_servico'] ?></td>
                         <td><?php echo $dados['nome_usuario'] ?></td>
+                       
+                        <td><?php if(isset($filial["nome"])) echo "{$filial["id"]} - {$filial["nome"]}"; else echo "Aleatório"; ?></td>
+                        <td><?php if(isset($cab["nome"])) echo "{$cab["id"]} - {$cab["nome"]}"; else echo "Aleatório"; ?></td>
                         <td><?php echo $dados['valor_total'] ?>R$</td>
                         <?php if (strtolower($dados['status']) == 'p') {
                         ?>
