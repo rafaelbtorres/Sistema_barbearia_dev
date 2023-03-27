@@ -55,10 +55,14 @@ function handleCheck(target){
 
 
 function confirmarServico(){
+
+    console.log("KLJKLJSADKLJSDKLJ");
     const preInfos = [
         {text: "Data:"},
         {text: "Horário:"},
-        {text: "Serviço:"}
+        {text: "Serviço:"},
+        {text: "Filial:"},
+        {text: "Cabeleleiro:"},
     ] 
 
     const posInfos = []
@@ -76,7 +80,11 @@ function confirmarServico(){
         ultimoItem != index ? servicos += " | ": ""
     });
 
-    posInfos.push(dia, horario, servicos);
+    // Filial
+    const filial = $("#filial option:selected").text();
+    const cabeleleiro = $("#cabeleleiro option:selected").text();
+
+    posInfos.push(dia, horario, servicos, filial, cabeleleiro);
 
     let confirmarServico = document.querySelector("#confirmar-servico-content");
     confirmarServico.innerHTML = ``;
@@ -96,5 +104,42 @@ function confirmarServico(){
     })
 }
 
-const btnServico = document.querySelector("#btn-servico");
-btnServico.addEventListener("click", confirmarServico);
+/*const btnServico = document.querySelector("#btn-servico");
+btnServico.addEventListener("click", confirmarServico);*/
+$("#btn-cabeleleiro").on('click', function(e){
+    confirmarServico();
+});
+
+$(document).ready(function(){
+    $("#filial").on('change', function(e){
+        if(e.target.value === ""){
+            $(".info-filial").html(``);
+            $("#cabeleleiro").html('<option value="">Aleatório</option>');
+            return;
+        }
+        setTimeout(function(){
+            var data = JSON.parse($("#filial option:selected").attr('data-filial'));
+            
+            $(".info-filial").html(`
+                Nome: ${data.nome}<br>
+                Endereço: ${data.rua}, Nº: ${data.numero}, ${data.bairro}, ${data.cidade} - ${data.estado}<br>
+                Telefone: ${data.telefone}
+            `);
+
+
+            // Adicionar os cabeleleiros desta filial
+            var cabeleleiros = JSON.parse($("#cabeleleiro").attr('data-cabeleleiros'));
+            let options = "<option value=''>Aleatório</option>";
+            
+            for(const cab of cabeleleiros){
+                const filiais = cab[4].split(',');
+                const found = filiais.find((x) => parseInt(x) === parseInt(data.id));
+                if(found) options = options + `<option value='${cab[0]}'>${cab[1]}</option>`;
+            }
+
+            $("#cabeleleiro").html(options);
+
+            $(".multisteps-form__form").attr('style', 'height: 340px');
+        } , 300);
+    })
+})
