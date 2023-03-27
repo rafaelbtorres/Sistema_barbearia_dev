@@ -10,13 +10,19 @@
     <div class='container'>
         <?php  
             include "config/functions.php";
-            include "config/config.php";
+            require_once "config/config.php";
+            
             $idBarbearia = $_GET["id"];
             $abertura = 0;
             $fechamento = 0;
 
+            $filiais = $mysqli->query("SELECT * FROM filial WHERE barbearia = '{$idBarbearia}' AND status = 'A'");
+            $cabeleleiros = $mysqli->query("SELECT * FROM cabeleleiros WHERE barbearia = '{$idBarbearia}' AND status = 'A'");
+
+            
+
             if(isset($idBarbearia)){
-                $conn = mysqli_connect("localhost", "root", "", "dbtcc");
+                $conn = mysqli_connect("localhost", "root", "", "barbearia");
 
                 $queryBarbearia = "CALL PROC_SEL_BARBEARIA($idBarbearia)";
                 $resultBarbearia = mysqli_query($conn, $queryBarbearia);
@@ -24,6 +30,9 @@
 
                 $resultServicos = $mysqli->query("CALL PROC_SEL_SERVICOS($idBarbearia)");
                 $rowServicos = $resultServicos->num_rows;
+
+
+                
               
                 // Montar página da barbearia
                 if($rowBarbearia > 0){
@@ -112,6 +121,14 @@
                                                             <button class='multisteps-form__progress-btn' type='button' title='Order Info' disabled>
                                                                 Serviço
                                                             </button>
+
+                                                            <button class='multisteps-form__progress-btn' type='button' title='Filiais' disabled>
+                                                                Filiais
+                                                            </button>
+
+                                                            <button class='multisteps-form__progress-btn' type='button' title='Cabeleleiro' disabled>
+                                                                Cabeleleiro
+                                                            </button>
                     
                                                             <button class='multisteps-form__progress-btn' type='button' title='Comments' disabled>
                                                                 Confirmação
@@ -196,44 +213,49 @@
                                                                     <div class='servicos mt-3'>
                     ";
 
-                    // Serviços
-                    if($rowServicos > 0){
-                        while($servicos = $resultServicos->fetch_assoc()){
-                            echo "
-                                <div class='input-container'>
-                                    <input 
-                                        id='{$servicos["id_servico"]}' 
-                                        type='checkbox' 
-                                        value='{$servicos["nome"]}'
-                                        name='servico-{$servicos["id_servico"]}'
-                                        data-target-title='btn-servico'
-                                        onChange='handleCheck(this);'
-                                    >
-                                    <label for='{$servicos["id_servico"]}'>
-                                        <span>
-                                            {$servicos["nome"]}
-                                            <br>
-                                            <span>
-                                                R$ {$servicos["preco"]}
-                                            </span>
-                                        </span>
-                                    </label>
-                                </div>
-                            ";
-                        }
-                    }
-                    else{
-                        echo "
-                            <h5 class='sb-txt-white sb-w-500'>
-                                Não há serviços cadastrados pelo estabelecimento                              
-                            </h5>
-                        ";
-                    }
+                                                                        // Serviços
+                                                                        if($rowServicos > 0){
+                                                                            while($servicos = $resultServicos->fetch_assoc()){
+                                                                                echo "
+                                                                                    <div class='input-container'>
+                                                                                        <input 
+                                                                                            id='{$servicos["id_servico"]}' 
+                                                                                            type='checkbox' 
+                                                                                            value='{$servicos["nome"]}'
+                                                                                            name='servico-{$servicos["id_servico"]}'
+                                                                                            data-target-title='btn-servico'
+                                                                                            onChange='handleCheck(this);'
+                                                                                        >
+                                                                                        <label for='{$servicos["id_servico"]}'>
+                                                                                            <span>
+                                                                                                {$servicos["nome"]}
+                                                                                                <br>
+                                                                                                <span>
+                                                                                                    R$ {$servicos["preco"]}
+                                                                                                </span>
+                                                                                            </span>
+                                                                                        </label>
+                                                                                    </div>
+                                                                                ";
+                                                                            }
+                                                                        }
+                                                                        else{
+                                                                            echo "
+                                                                                <h5 class='sb-txt-white sb-w-500'>
+                                                                                    Não há serviços cadastrados pelo estabelecimento                              
+                                                                                </h5>
+                                                                            ";
+                                                                        }
                                  
                     // Fechamento trecho
                     echo " 
                                                                     <div>                                   
                                                                 </div>
+
+                                                                <!-- Fim Serviço -->
+
+
+
                                                                 <div class='row'>
                                                                     <div class='button-row d-flex mt-4 col-12'>
                                                                         <button class='btn sb-btn-secondary-default js-btn-prev sb-w-700' type='button' title='Prev'>
@@ -251,8 +273,109 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                    </div>                                                 
+
+
+
+                                                            
+
+                                                    </div> 
+                                                    
+                                                    
                                                 </div>
+
+                                                <div class='multisteps-form__panel shadow p-4 rounded'>
+                                                                <h3 class='multisteps-form__title sb-txt-white sb-w-900'>
+                                                                    Filiais
+                                                                </h3>
+                                                                <div class='multisteps-form__content'>
+                                                                    <div class='mt-4'>
+
+                                                                        <select class='sb-form-input form-control sb-full-width pl-3' id='filial' name='filial'>
+                                                                            <option value=''>Quero ir na matriz.</option>
+                                                                    ";
+
+                                                                    while($filial = $filiais->fetch_assoc()){
+                                                                        echo "
+                                                                            
+                                                                            <option value='{$filial['id']}' data-filial='" . json_encode($filial) . "'>{$filial['nome']}</option>
+
+
+                                                                            
+                                                                        
+                                                                        ";
+
+                                                                    }
+
+                                                                    echo "
+                                                                        </select>
+
+                                                                        </br>
+                                                                        
+                                                                        <p class='text text-white info-filial'></p>
+                                                                        
+                                                                    <!--<input 
+                                                                            class='timepicker sb-form-input sb-full-width pl-3'
+                                                                            placeholder='Clique para selecionar o horário'
+                                                                            id='horario-agendamento'
+                                                                            name='horario-agendamento'
+                                                                            data-target-title='btn-horario'
+                                                                            onChange='handleButton(this);'
+                                                                    />-->
+                                                                    </div>
+                                                                    <div class='button-row d-flex mt-4'>
+                                                                        <button class='btn sb-btn-secondary-default js-btn-prev sb-w-700' type='button' title='Prev'>
+                                                                            Anterior
+                                                                        </button>
+                                                                        <button 
+                                                                            class='btn sb-btn-secondary-default js-btn-next sb-w-700 ml-auto' 
+                                                                            type='button' 
+                                                                            title='Prev'
+                                                                            id='btn-filiais'
+        
+                                                                        >
+                                                                            Próximo
+                                                                        </button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+
+                                                <!-- Cabeleleiro -->
+                                                <div class='multisteps-form__panel shadow p-4 rounded'>
+                                                                <h3 class='multisteps-form__title sb-txt-white sb-w-900'>
+                                                                    Cabeleleiro
+                                                                </h3>
+                                                                <div class='multisteps-form__content'>
+                                                                    <div class='mt-4'>
+
+                                                                        <select data-cabeleleiros='" . json_encode($cabeleleiros->fetch_all()) . "' class='sb-form-input form-control sb-full-width pl-3' id='cabeleleiro' name='cabeleleiro'>
+                                                                            <option value=''>Aleatório</option>
+                                                                    
+                                                                        </select>
+
+                                                                        </br>
+        
+    
+                                                                    </div>
+                                                                    <div class='button-row d-flex mt-4'>
+                                                                        <button class='btn sb-btn-secondary-default js-btn-prev sb-w-700' type='button' title='Prev'>
+                                                                            Anterior
+                                                                        </button>
+                                                                        <button 
+                                                                            class='btn sb-btn-secondary-default js-btn-next sb-w-700 ml-auto' 
+                                                                            type='button' 
+                                                                            title='Prev'
+                                                                            id='btn-cabeleleiro'
+        
+                                                                        >
+                                                                            Próximo
+                                                                        </button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                    
+                    
+
                                                 <!--Confirmar Serviço-->
                                                 <div class='multisteps-form__panel shadow p-4 rounded' data-animation='scaleIn'>
                                                     <h3 class='multisteps-form__title sb-txt-white sb-w-900'>
