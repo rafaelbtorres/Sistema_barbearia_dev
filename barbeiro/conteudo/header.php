@@ -22,3 +22,10 @@ if(empty($_SESSION)) {
     <link rel="stylesheet" href="<?php echo $base_url ?>css/global.css">
 
     <title>House of Barbers</title>
+
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+    <script src="
+https://cdn.jsdelivr.net/npm/jquery-inputmask@1.0.1/index.min.js
+"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    
