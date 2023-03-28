@@ -419,9 +419,9 @@
                     <script>
                         window.location.href = 'area_cliente.php'
                     </script>
+
                 ";
             }
         ?>
     </div>  
 </section>
-

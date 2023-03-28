@@ -133,8 +133,8 @@ $(document).ready(function(){
             
             for(const cab of cabeleleiros){
                 const filiais = cab[4].split(',');
-                const found = filiais.find((x) => parseInt(x) === parseInt(data.id));
-                if(found) options = options + `<option value='${cab[0]}'>${cab[1]}</option>`;
+                if(parseInt(cab[4]) === parseInt(data.id))
+                    options = options + `<option value='${cab[0]}'>${cab[1]}</option>`;
             }
 
             $("#cabeleleiro").html(options);
