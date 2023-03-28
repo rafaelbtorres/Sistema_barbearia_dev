@@ -123,7 +123,7 @@
                                                             </button>
 
                                                             <button class='multisteps-form__progress-btn' type='button' title='Filiais' disabled>
-                                                                Filiais
+                                                                Filial
                                                             </button>
 
                                                             <button class='multisteps-form__progress-btn' type='button' title='Cabeleleiro' disabled>
@@ -419,9 +419,9 @@
                     <script>
                         window.location.href = 'area_cliente.php'
                     </script>
+
                 ";
             }
         ?>
     </div>  
 </section>
-
