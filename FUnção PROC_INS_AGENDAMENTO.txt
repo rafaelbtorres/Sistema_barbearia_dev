@@ -1,0 +1,23 @@
+CREATE DEFINER=`root`@`localhost` PROCEDURE `PROC_INS_AGENDAMENTO`(IN `id_usuario` INT, IN `id_barbearia` INT, IN `data_agendamento_escolhida` DATE, IN `horario_agendamento_escolhido` TIME, IN `valor_total_escolhido` DECIMAL, IN `filial` INT, IN `cabeleleiro` INT)
+BEGIN
+	INSERT INTO agendamento (
+		usuario,
+        barbearia,
+        data_agendamento,
+        horario_agendamento,
+        valor_total,
+        status,
+				filial,
+				cabeleleiro
+    ) VALUES (
+		id_usuario,
+        id_barbearia,
+        data_agendamento_escolhida,
+        horario_agendamento_escolhido,
+        valor_total_escolhido,
+        'P',
+				filial,
+				cabeleleiro
+				
+    );
+END

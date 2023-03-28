@@ -56,7 +56,7 @@
                 }
                 else{
                     // FAZ O AGENDAMENTO
-                    $queryAgendamento = "CALL PROC_INS_AGENDAMENTO('{$idUsuario}', '{$idBarbearia}', '{$data_agendamento}', '{$horario_agendamento}', '{$valorTotal}')";
+                    $queryAgendamento = "CALL PROC_INS_AGENDAMENTO('{$idUsuario}', '{$idBarbearia}', '{$data_agendamento}', '{$horario_agendamento}', '{$valorTotal}', '{$_POST["filial"]}','{$_POST["cabeleleiro"]}')";
                     $resultAgendamento = $mysqli->query($queryAgendamento);
                     
                     $queryBuscarIdAgendamento = "select id_agendamento from agendamento where data_agendamento = '{$data_agendamento}' and horario_agendamento = '{$horario_agendamento}' and status = 'P'";

@@ -1,0 +1,24 @@
+CREATE DEFINER=`root`@`localhost` PROCEDURE `PROC_AGENDAMENTOS_BARBEARIA`(IN `id_barbearia` INT)
+BEGIN
+	select 
+		agendamento.id_agendamento,
+		agendamento.barbearia,
+		agendamento.data_agendamento, 
+		agendamento.horario_agendamento,
+		agendamento.valor_total,
+		agendamento.status,
+		agendamento.data_criacao,
+		agendamento.cabeleleiro,
+		agendamento.filial,
+		group_concat(concat(" ", servico.nome)) as "nome_servico",
+		user.nome as "nome_usuario"
+	from agendamento_servico
+	inner join agendamento
+	on agendamento_servico.agendamento = agendamento.id_agendamento
+	inner join servico
+	on agendamento_servico.servico = servico.id_servico
+	inner join user
+	on agendamento.usuario = user.user_id
+	where agendamento.barbearia=id_barbearia
+	group by agendamento.id_agendamento;
+END
