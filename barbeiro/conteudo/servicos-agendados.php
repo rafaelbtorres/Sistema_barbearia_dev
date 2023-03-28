@@ -35,12 +35,20 @@ require_once "./config/config.php";
                 <?php
                 while ($dados = mysqli_fetch_assoc($query)) {
                     
-                    $cab = $mysqli->query("SELECT * FROM cabeleleiros WHERE id = {$dados["cabeleleiro"]}");
-                    $cab = $cab->fetch_assoc();
-                    
-                    $filial = $mysqli->query("SELECT * FROM filial WHERE id = {$dados["filial"]}");
-                    $filial = $filial->fetch_assoc();
+                    $cab = null;
+                    $filial = $null;
 
+                    if($dados["cabeleleiro"] != null){
+                        $cab = $mysqli->query("SELECT * FROM cabeleleiros WHERE id = {$dados["cabeleleiro"]}");
+                        if($cab !== false)
+                            $cab = $cab->fetch_assoc();
+                    }
+
+                    if($dados["filial"] != null){
+                        $filial = $mysqli->query("SELECT * FROM filial WHERE id = {$dados["filial"]}");
+                        if($filial !== false)
+                            $filial = $filial->fetch_assoc();
+                    }
 
                 ?>
                     <tr>
