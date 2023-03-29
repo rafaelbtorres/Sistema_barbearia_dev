@@ -18,6 +18,7 @@ $base_url = "barbeiro/"
         $('#tabela_servicos_agendados').DataTable({
             responsive: true,
             "bJQueryUI": true,
+            "order": [[ 0, "desc" ]],
             "oLanguage": {
                 "sProcessing": "Processando...",
                 "sLengthMenu": "Mostrar _MENU_ registros",

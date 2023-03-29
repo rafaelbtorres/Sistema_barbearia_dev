@@ -7,20 +7,22 @@
     */
     const mesAtual = data.getMonth();
     const mesInvalido = mesAtual == 0 ? 12: mesAtual;
-
+    const anoAtual = data.getFullYear();
     const diaAtual = data.getDate();
 
     // Data
     $('.datepicker').pickadate({
         formatSubmit: 'yyyy/mm/dd',
         hiddenName: true,
+        minDate: data,
+        todayButton: "Hoje",
         hiddenPrefix: 'prefix__',
         hiddenSuffix: '__suffix',
         klass: {
             navPrev: 'picker__nav--next',
             navNext: 'picker__nav--prev',
         },
-        min: new Date(2020, mesInvalido, diaAtual),
+        min: new Date(anoAtual, mesInvalido, diaAtual),
         disable: [
             1
         ],
@@ -133,8 +135,8 @@ $(document).ready(function(){
             
             for(const cab of cabeleleiros){
                 const filiais = cab[4].split(',');
-                const found = filiais.find((x) => parseInt(x) === parseInt(data.id));
-                if(found) options = options + `<option value='${cab[0]}'>${cab[1]}</option>`;
+                if(parseInt(cab[4]) === parseInt(data.id))
+                options = options + `<option value='${cab[0]}'>${cab[1]}</option>`;
             }
 
             $("#cabeleleiro").html(options);

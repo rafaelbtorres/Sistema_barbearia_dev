@@ -6122,7 +6122,7 @@
 			/* In ARIA only the first sorting column can be marked as sorting - no multi-sort option */
 			if ( col.bSortable ) {
 				if ( aSort.length > 0 && aSort[0].col == i ) {
-					th.setAttribute('aria-sort', aSort[0].dir=="asc" ? "ascending" : "descending" );
+					th.setAttribute('aria-sort', aSort[0].dir=="asc" ? "descending" : "ascending" );
 					nextSort = asSorting[ aSort[0].index+1 ] || asSorting[0];
 				}
 				else {
@@ -6130,8 +6130,8 @@
 				}
 	
 				label = sTitle + ( nextSort === "asc" ?
-					oAria.sSortAscending :
-					oAria.sSortDescending
+				    oAria.sSortDescending :
+					oAria.sSortAscending
 				);
 			}
 			else {
@@ -10047,7 +10047,7 @@
 		 * should contain an array for each column to be sorted initially containing
 		 * the column's index and a direction string ('asc' or 'desc').
 		 *  @type array
-		 *  @default [[0,'asc']]
+		 *  @default [[0,'desc']]
 		 *
 		 *  @dtopt Option
 		 *  @name DataTable.defaults.order
@@ -10067,7 +10067,7 @@
 		 *      } );
 		 *    } );
 		 */
-		"aaSorting": [[0,'asc']],
+		"aaSorting": [[0,'desc']],
 	
 	
 		/**
@@ -12232,7 +12232,7 @@
 		 *      } );
 		 *    } );
 		 */
-		"asSorting": [ 'asc', 'desc' ],
+		"asSorting": [ 'desc','asc' ],
 	
 	
 		/**

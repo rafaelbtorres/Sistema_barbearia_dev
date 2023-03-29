@@ -9,8 +9,9 @@
     <div class=" container-fluid">
     <div class="mt-5 mb-5 pb-5 container-fluid">
     <div class="col-12 headerIcon pt-3 pb-3">
-      <span><i class="fas fa-link"></i> Compartilhe o link sua barbearia abaixo
-        <h6>http://localhost/sistema_barbearia/barbearia.php?id=<?php echo $idBarbearia?> </h6>
+      <span><i class="fas fa-link"></i> Compartilhe o link sua barbearia abaixo:
+      <br>
+      <a href="http://localhost/sistema_barbearia/barbearia.php?id=<?php echo $idBarbearia?>">http://localhost/sistema_barbearia/barbearia.php?id=<?php echo $idBarbearia?></a>
       </span>
         </div>
          <div class="row pt-5 align-items-start">

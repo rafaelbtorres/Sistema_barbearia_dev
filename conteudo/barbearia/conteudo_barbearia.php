@@ -22,7 +22,7 @@
             
 
             if(isset($idBarbearia)){
-                $conn = mysqli_connect("localhost", "root", "", "barbearia");
+                $conn = mysqli_connect("localhost", "root", "", "dbtcc");
 
                 $queryBarbearia = "CALL PROC_SEL_BARBEARIA($idBarbearia)";
                 $resultBarbearia = mysqli_query($conn, $queryBarbearia);
@@ -43,13 +43,7 @@
                     $abertura = $statusFuncionamento[2];
                     $fechamento = $statusFuncionamento[3];
                     // Abertura trecho 
-                    echo "
-                        <button class='btn-whatsapp btn-position-fixed'>
-                            <a href='https://api.whatsapp.com/send?phone=55{$dadosBarbearia["telefone"]}' target='_blank'>
-                                <i class='fa fa-whatsapp'></i>
-                            </a>
-                        </button>
-                    
+                    echo "                    
                         <!-- Informações -->
                         <div class='informacoes'>
                             <div class='row'>
@@ -123,7 +117,7 @@
                                                             </button>
 
                                                             <button class='multisteps-form__progress-btn' type='button' title='Filiais' disabled>
-                                                                Filiais
+                                                                Filial
                                                             </button>
 
                                                             <button class='multisteps-form__progress-btn' type='button' title='Cabeleleiro' disabled>

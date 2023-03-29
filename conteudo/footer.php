@@ -13,17 +13,17 @@
                 </h6>
                 <div>
                     <a 
-                        href="mailto:contatohouseofbarber@gmail.com" 
+                        href="mailto:rafaelbartorres@gmail.com" 
                         class="sb-txt-white sb-d-block sb-w-400 mt-3 mb-3" id="email"
                     >
                         <i class="fa fa-envelope" aria-hidden="true"></i>
                         <span class="ml-1">
-                            contatohouseofbarber@gmail.com
+                            rafaelbartorres@gmail.com
                         </span>
                     </a>
-                    <a href="#" class="sb-txt-white sb-w-400 mt-2">
+                    <a href="https://wa.me/5555984618335?text=Ol%C3%A1%2C+gostaria+de+mais+informa%C3%A7%C3%B5es+sobre+o+Agenda%C3%AD" class="sb-txt-white sb-w-400 mt-2">
                         <i class="fa fa-phone" aria-hidden="true"></i>
-                        <span class="ml-1">(XX) XXXXX-XXXX</span>
+                        <span class="ml-1">(55) 98461-8335</span>
                     </a>
                 </div>
             </div>

@@ -6,7 +6,8 @@
 <!doctype html>
 <html lang="pt-br">
   <head>
-    <title>Registro de Barbearias | House of Barber</title>
+    <title>Registro de Barbearias | AgendAÍ</title>
+    <link rel="icon" type="image/x-icon" href="assets/icons/favicon.ico">
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">

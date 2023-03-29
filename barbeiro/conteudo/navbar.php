@@ -25,16 +25,14 @@
                 <i class="fas fa-plus"></i> Cadastrar Serviços
                 </a>
             </li>
-
-            <li class="nav-item nav-Cadastar-Filiais">
-                <a  href="/sistema_barbearia/barbeiro/cadastrar-filiais" class="nav-link itemNav" href="#">
-                <i class="fas fa-plus"></i> Filiais
+            <li class="nav-item nav-Cadastrar-filial">
+                <a  href="/sistema_barbearia/barbeiro/cadastrarFilial" class="nav-link itemNav" href="#">
+                <i class="fas fa-plus"></i> Cadastrar Filiais
                 </a>
             </li>
-
-            <li class="nav-item nav-Cadastrar-Funcionarios">
-                <a  href="/sistema_barbearia/barbeiro/cadastrar-cabeleleiro" class="nav-link itemNav" href="#">
-                <i class="fas fa-users"></i> Cabeleleiros
+            <li class="nav-item nav-Cadastrar-cabeleleiro">
+                <a  href="/sistema_barbearia/barbeiro/cadastrarCabeleleiro" class="nav-link itemNav" href="#">
+                <i class="fas fa-plus"></i> Cadastrar Profissionais
                 </a>
             </li>
         </ul>

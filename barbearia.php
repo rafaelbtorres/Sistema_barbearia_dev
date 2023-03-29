@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="pt-br">
   <head>
-    <title>Agendar Serviço | House of Barber</title>
+    <title>Agendar Serviço | AgendAÍ</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -64,8 +64,9 @@
                 $('.timepicker').pickatime({
                     format: 'H:i',
                     // Delimitador de horas
-                    min: ['{$$aberturaFormat[0]}', '{$aberturaFormat[1]}'],
-                    max: ['{$fechamentoFormat[0]}', '{$fechamentoFormat[1]}']
+                    min: [$aberturaFormat[0], $aberturaFormat[1]],
+                    max: [$fechamentoFormat[0], $fechamentoFormat[1]],
+                    disable: [[13][00],[12][00]]
                 })
             </script>
         ";

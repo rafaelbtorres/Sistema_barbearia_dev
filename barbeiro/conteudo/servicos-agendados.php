@@ -1,11 +1,7 @@
 <?php
-$conn = mysqli_connect("localhost", "root", "", "barbearia");
+$conn = mysqli_connect("localhost", "root", "", "dbtcc");
 $select = ("CALL PROC_AGENDAMENTOS_BARBEARIA('{$_SESSION['barbearia_id']}')");
 $query = $conn->query($select);
-
-require_once "./config/config.php";
-
-
 ?>
 <div class="container-fluid pt-5 pb-5">
     <div class="profile-header">
@@ -23,36 +19,23 @@ require_once "./config/config.php";
                         <th>Horario agendamento</th>
                         <th>Serviços solicitados</th>
                         <th>Nome do cliente</th>
-                        <th>Filial</th>
-                        <th>Cabeleleiro</th>
-                        <th>Valor</th>
+                        <th>Valor T.</th>
                         <th>Status</th>
-                        <th>#</th>
+                        <th>Ação</th>
                     </tr>
                 </thead>
             </div>
             <tbody id="agend">
                 <?php
                 while ($dados = mysqli_fetch_assoc($query)) {
-                    
-                    $cab = $mysqli->query("SELECT * FROM cabeleleiros WHERE id = {$dados["cabeleleiro"]}");
-                    $cab = $cab->fetch_assoc();
-                    
-                    $filial = $mysqli->query("SELECT * FROM filial WHERE id = {$dados["filial"]}");
-                    $filial = $filial->fetch_assoc();
-
-
                 ?>
                     <tr>
                         <td><?php echo $dados['id_agendamento'] ?></td>
-                        <td><?php echo date('Y/m/d', strtotime($dados['data_agendamento'])) ?></td>
+                        <td><?php echo date('d/m/Y', strtotime($dados['data_agendamento'])) ?></td>
                         <td><?php echo $dados['horario_agendamento'] ?></td>
                         <td><?php echo $dados['nome_servico'] ?></td>
                         <td><?php echo $dados['nome_usuario'] ?></td>
-                       
-                        <td><?php if(isset($filial["nome"])) echo "{$filial["id"]} - {$filial["nome"]}"; else echo "Aleatório"; ?></td>
-                        <td><?php if(isset($cab["nome"])) echo "{$cab["id"]} - {$cab["nome"]}"; else echo "Aleatório"; ?></td>
-                        <td><?php echo $dados['valor_total'] ?>R$</td>
+                        <td>R$ <?php echo $dados['valor_total']?></td>
                         <?php if (strtolower($dados['status']) == 'p') {
                         ?>
                             <td>Pendente</td>
@@ -61,11 +44,12 @@ require_once "./config/config.php";
                         <?php
                         } elseif (strtolower($dados['status']) == 'f') {
                         ?>
-                            <td>Finalizado</td>
+                            <td>Concluído</td>
                             <td>#</td>
                         <?php
                         } else {
                             echo ('<td>Cancelado</td>');
+                            echo ('<td>#</td>');
                         } ?>
                     </tr>
 

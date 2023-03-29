@@ -41,9 +41,149 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
 
 ?>
 
-<div class="row pt-5" style="margin-right: 0px;margin-left: 0px;">
+
+ <!-- Cadastrar Serviço -->
+ <div class="row" style="margin-right: 0px;margin-left: 0px;">
+    <div class="col-md-12 mt-5">
+            <div class="profile-header">
+                <h4 class="ml-3 pt-1">
+                <i class="fas fa-plus"></i> Cadastrar Filial
+                </h4>
+            </div>
+            <div class="profile-a ">
+                <form class="example-form" method="POST" action="cadastrarFilial" style="text-align: left;">
+                <input type="hidden" name="id" value="<?=@$filialD['id']?>" />
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label>
+                                Nome da Filial:
+                            </label>
+                            <input 
+                                type="text" 
+                                class="form-control"
+                                name="nome"
+                                value="<?=@$filialD['nome']?>" required
+                            >
+                        </div>
+
+                        <div class="col-md-6">
+                            <label>
+                                CEP
+                            </label>
+                            <input 
+                                type="text" 
+                                class="form-control"
+                                name="cep" id="cep"
+                                value="<?=@$filialD['cep']?>" required
+                            >
+                        </div>
+                        
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label>
+                                Endereço
+                            </label>
+                            <input 
+                                type="text" 
+                                class="form-control"
+                                name="rua" id="rua"
+                                value="<?=@$filialD['rua']?>" required
+                            >
+                        </div>
+
+                        <div class="col-md-6">
+                            <label>
+                                Bairro
+                            </label>
+                            <input 
+                                type="text" 
+                                class="form-control"
+                                name="bairro" id="bairro"
+                                value="<?=@$filialD['bairro']?>" required
+                            >
+                        </div>
+                        
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label>
+                                Cidade:
+                            </label>
+                            <input 
+                                type="text" 
+                                class="form-control"
+                                name="cidade" id="cidade"
+                                value="<?=@$filialD['cidade']?>" required
+                            >
+                        </div>
+
+                        <div class="col-md-6">
+                            <label>
+                                Estado
+                            </label>
+                            <input 
+                                type="text" 
+                                class="form-control"
+                                name="estado" id="estado"
+                                value="<?=@$filialD["estado"]?>" required
+                            >
+                        </div>
+                        
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label>
+                                Nº
+                            </label>
+                            <input 
+                                type="text" 
+                                class="form-control"
+                                name="numero" id="numero"
+                                value="<?=@$filialD["numero"]?>" required
+                            >
+                        </div>
+
+                        <div class="col-md-6">
+                            <label>
+                                Telefone
+                            </label>
+                            <input 
+                                type="text" 
+                                class="form-control"
+                                name="telefone" id="telefone"
+                                value="<?=@$filialD["telefone"]?>" required
+                            >
+                        </div>
+                        
+                    </div>
+                    <?php if(isset($filialD["id"])): ?>
+                    <a href="cadastrarFilial" target="_self"
+                        class="btn btn-danger mt-4"
+                        name="adicionar_servico"
+                    >
+                        <i class="fas fa-plus mr-1"></i> 
+                        <span>Cancelar</span>
+                            </a>
+                    <?php endif; ?>
+                    <button 
+                        class="btn btn-primary mt-4"
+                        name="adicionar_servico"
+                    >
+                        <i class="fas fa-plus mr-1"></i> 
+                        <span>Salvar</span>
+                    </button>
+                </form>
+            </div>
+        </div>
+</div>
+
+<div class="row" style="margin-right: 0px;margin-left: 0px;">
     <!-- Filiais cadastrados -->
-    <div class="col-md-8 mt-5 mb-5">
+    <div class="col-md-12 mt-4 mb-4">
         <div class="profile-header">
             <h4 class="ml-3 pt-1"> 
             <i class="fas fa-cut"></i> Filiais cadastradas
@@ -108,7 +248,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
                                                     class='btn btn-sm btn-success inativar-filial'
                                                     title='Ativar Filial'
                                                   >
-                                                <i class='fa fa-eye-slash'></i></a>
+                                                <i class='fa fa-lock-open'></i></a>
                                                 ";
                                                 else:
                                                     echo "
@@ -118,7 +258,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
                                                     class='btn btn-sm btn-warning inativar-filial'
                                                     title='Inativar Filial'
                                                 >
-                                                    <i class='fa fa-eye-slash'></i>
+                                                    <i class='fa fa-lock'></i>
                                                 </a>
                                                 ";
                                                 endif;
@@ -136,143 +276,6 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
                     </tbody>
                 </table>
             </div>    
-        </div>
-    </div>
-
-    <!-- Cadastrar Serviço -->
-    <div class="col-md-4 mt-5 mb-5">
-        <div class="profile-header">
-            <h4 class="ml-3 pt-1">
-            <i class="fas fa-plus"></i> Cadastrar Filial
-            </h4>
-        </div>
-        <div class="profile-a ">
-            <form class="example-form" method="POST" action="cadastrar-filiais" style="text-align: left;">
-            <input type="hidden" name="id" value="<?=@$filialD['id']?>" />
-                <div class="row">
-                    <div class="col-md-6">
-                        <label>
-                            Nome da Filial:
-                        </label>
-                        <input 
-                            type="text" 
-                            class="form-control"
-                            name="nome"
-                            value="<?=@$filialD['nome']?>" required
-                        >
-                    </div>
-
-                    <div class="col-md-6">
-                        <label>
-                            CEP
-                        </label>
-                        <input 
-                            type="text" 
-                            class="form-control"
-                            name="cep" id="cep"
-                            value="<?=@$filialD['cep']?>" required
-                        >
-                    </div>
-                    
-                </div>
-
-                <div class="row">
-                    <div class="col-md-6">
-                        <label>
-                            Endereço
-                        </label>
-                        <input 
-                            type="text" 
-                            class="form-control"
-                            name="rua" id="rua"
-                            value="<?=@$filialD['rua']?>" required
-                        >
-                    </div>
-
-                    <div class="col-md-6">
-                        <label>
-                            Bairro
-                        </label>
-                        <input 
-                            type="text" 
-                            class="form-control"
-                            name="bairro" id="bairro"
-                            value="<?=@$filialD['bairro']?>" required
-                        >
-                    </div>
-                    
-                </div>
-
-                <div class="row">
-                    <div class="col-md-6">
-                        <label>
-                            Cidade:
-                        </label>
-                        <input 
-                            type="text" 
-                            class="form-control"
-                            name="cidade" id="cidade"
-                            value="<?=@$filialD['cidade']?>" required
-                        >
-                    </div>
-
-                    <div class="col-md-6">
-                        <label>
-                            Estado
-                        </label>
-                        <input 
-                            type="text" 
-                            class="form-control"
-                            name="estado" id="estado"
-                            value="<?=@$filialD["estado"]?>" required
-                        >
-                    </div>
-                    
-                </div>
-
-                <div class="row">
-                    <div class="col-md-6">
-                        <label>
-                            Nº
-                        </label>
-                        <input 
-                            type="text" 
-                            class="form-control"
-                            name="numero" id="numero"
-                            value="<?=@$filialD["numero"]?>" required
-                        >
-                    </div>
-
-                    <div class="col-md-6">
-                        <label>
-                            Telefone
-                        </label>
-                        <input 
-                            type="text" 
-                            class="form-control"
-                            name="telefone" id="telefone"
-                            value="<?=@$filialD["telefone"]?>" required
-                        >
-                    </div>
-                    
-                </div>
-                <?php if(isset($filialD["id"])): ?>
-                <a href="cadastrar-filiais" target="_self"
-                    class="btn btn-danger mt-4"
-                    name="adicionar_servico"
-                >
-                    <i class="fas fa-plus mr-1"></i> 
-                    <span>Cancelar</span>
-                        </a>
-                <?php endif; ?>
-                <button 
-                    class="btn btn-primary mt-4"
-                    name="adicionar_servico"
-                >
-                    <i class="fas fa-plus mr-1"></i> 
-                    <span>Salvar</span>
-                </button>
-            </form>
         </div>
     </div>
 </div>

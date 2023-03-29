@@ -16,17 +16,17 @@
     btnRegistro.addEventListener("click", (e) => {
         e.preventDefault();
         Swal.fire({
-            title: `Que bom que você quer se registrar!`, 
-            text: `Informe sua opção, e iremos te encaminhar para a próxima etapa do registro. Você é:`,
+            title: `Estamos quase lá!`, 
+            text: `Se você é cliente, basta clicar no botão cliente abaixo. \n Já se você é um dono de barbearia, entre com contato pelo Whatsapp: (55) 98461-8335 para realizarmos seu cadastro e liberar seu plano.`,
             icon: 'info',
             showCancelButton: true,
             confirmButtonColor: '#202024',
             cancelButtonColor: '#202024',
-            confirmButtonText: 'Dono de barbearia',
+            // confirmButtonText: 'Dono de barbearia',
             cancelButtonText: 'Cliente'
         }).then((result) => {
             if (result.isConfirmed) {
-                redirecionarUsuario("registro_barbearia");
+                // redirecionarUsuario("registro_barbearia");
             }
             else{
                 redirecionarUsuario("registro");

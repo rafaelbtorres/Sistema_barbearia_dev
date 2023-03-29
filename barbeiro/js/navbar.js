@@ -16,6 +16,12 @@ function setarActive(classe) {
         case 'cadastrar-servicos':
             $('.nav-Cadastrar-servicos').attr('class', 'active nav-item nav-Cadastrar-servicos')
             break
+        case 'cadastrar-filial':
+            $('.nav-Cadastrar-filial').attr('class', 'active nav-item nav-Cadastrar-filial')
+            break
+        case 'cadastrar-cabelereiro':
+            $('.nav-Cadastrar-cabelereiro').attr('class', 'active nav-item nav-Cadastrar-cabelereiro')
+            break
         default:
             break;
     }

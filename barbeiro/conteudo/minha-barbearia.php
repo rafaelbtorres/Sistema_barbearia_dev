@@ -30,8 +30,9 @@ $bar = mysqli_fetch_assoc($result);
                                 <button name="sobre" type="submit" class="btn btn-primary mt-5"> Salvar Alteração</button>
                             </div>
                             <hr>
-                            <div class="mt-4 col-md-4 mr-5" style="text-align: center;">
-                                <h2>Sua melhor foto
+                            <!-- AJUSTE DE IMAGEM/LOGOMARCA -->
+                            <!-- <div class="mt-4 col-md-4 mr-5" style="text-align: center;">
+                                <h2>Logomarca da barbearia
                                     <i class="fas fa-camera"></i>
                                 </h2>
                                 <div>
@@ -39,7 +40,7 @@ $bar = mysqli_fetch_assoc($result);
                                 </div>
                                 <button class="mt-3 mb-5 btn btn-primary" type="submit">
                                     Alterar imagem
-                                </button>
+                                </button> -->
                                 <input style="visibility: hidden;" type="text" name="cep" value="<?php echo $bar['cep']; ?>">
                                 <input style="visibility: hidden;" type="text" name="id" value="<?php echo $bar['barbearia_id']; ?>">
                             </div>
@@ -53,7 +54,7 @@ $bar = mysqli_fetch_assoc($result);
         <div class="col-md-6  mb-5 ">
             <div class="profile-header">
                 <h2>
-                    <i class="fas fa-home"></i>DADOS GERAIS
+                    <i class="fas fa-home"></i>  DADOS GERAIS
                 </h2>
             </div>
             <div class="profile-a">
@@ -133,8 +134,7 @@ $bar = mysqli_fetch_assoc($result);
                 <form method="post" action="./minha-barbearia" class="example-form">
 
                         <section class="example-section">
-                            <a type="button">Dias de funcionamento:
-                                <i class="fas fa-pencil-alt"></i>
+                            <a type="button">Dias de funcionamento
                             </a>
                             <div class="row">
                                 <div class="col-md-12" style="text-align: center;">
@@ -145,20 +145,20 @@ $bar = mysqli_fetch_assoc($result);
                                                 <div class="row">
                                                     <div class="col-md-12">
                                                         <div class="row">
-                                                            <div class="col-1">
+                                                            <div class="col-2">
                                                                 <label>Abre:</label>
                                                             </div>
-                                                            <div class="col-11" style="text-align: left;">
+                                                            <div class="col-10" style="text-align: left;">
                                                                 <input name="horario_abertura" type="time" value="<?php echo $bar['horario_abertura']; ?>">
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-12">
                                                         <div class="row">
-                                                            <div class="col-1">
+                                                            <div class="col-2">
                                                                 <label>Fecha:</label>
                                                             </div>
-                                                            <div class="col-11" style="text-align: left;">
+                                                            <div class="col-10" style="text-align: left;">
                                                                 <input name="horario_fechamento" style="text-align: left;" type="time" value="<?php echo $bar['horario_fechamento']; ?>">
                                                             </div>
                                                         </div>
@@ -170,20 +170,20 @@ $bar = mysqli_fetch_assoc($result);
                                                 <div class="row">
                                                     <div class="col-md-12">
                                                         <div class="row">
-                                                            <div class="col-1">
+                                                            <div class="col-2">
                                                                 <label>Abre:</label>
                                                             </div>
-                                                            <div class="col-11" style="text-align: left;">
+                                                            <div class="col-10" style="text-align: left;">
                                                                 <input name="horario_abertura_final_semana" type="time" value="<?php echo $bar['horario_abertura_final_semana']; ?>">
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-12">
                                                         <div class="row">
-                                                            <div class="col-1">
+                                                            <div class="col-2">
                                                                 <label>Fecha:</label>
                                                             </div>
-                                                            <div class="col-11" style="text-align: left;">
+                                                            <div class="col-10" style="text-align: left;">
                                                                 <input name="horario_fechamento_final_semana" style="text-align: left;" type="time" value="<?php echo $bar['horario_fechamento_final_semana']; ?>">
                                                             </div>
                                                         </div>
@@ -199,7 +199,7 @@ $bar = mysqli_fetch_assoc($result);
                             </div>
                             <div style="text-align: end;">
                             <button value="<?php echo $bar['barbearia_id'] ?>" name="aplicar" class="mt-5 btn btn-primary" style="width: 33%;">
-                                Aplicar
+                                Salvar
                             </button>
                         </div>
                         </section>

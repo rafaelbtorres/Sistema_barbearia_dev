@@ -1,6 +1,6 @@
 <div class="row pt-5" style="margin-right: 0px;margin-left: 0px;">
     <!-- Serviços cadastrados -->
-    <div class="col-md-6 mt-4 mb-5">
+    <div class="col-md-8 mt-4 mb-5">
         <div class="profile-header">
             <h4 class="ml-3 pt-1"> 
             <i class="fas fa-cut"></i> Serviços Cadastrados
@@ -57,7 +57,7 @@
     </div>
 
     <!-- Cadastrar Serviço -->
-    <div class="col-md-6 mt-4 mb-5">
+    <div class="col-md-4 mt-4 mb-5">
         <div class="profile-header">
             <h4 class="ml-3 pt-1">
             <i class="fas fa-plus"></i> Cadastrar Serviço

@@ -11,7 +11,8 @@ BEGIN
 		agendamento.cabeleleiro,
 		agendamento.filial,
 		group_concat(concat(" ", servico.nome)) as "nome_servico",
-		user.nome as "nome_usuario"
+		user.nome as "nome_usuario",
+		user.nome as "tel_usuario"
 	from agendamento_servico
 	inner join agendamento
 	on agendamento_servico.agendamento = agendamento.id_agendamento

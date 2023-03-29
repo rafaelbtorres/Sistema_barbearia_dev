@@ -58,7 +58,7 @@ $app->get(
 );
 
 $app->get(
-    '/minha-barbearia/',
+    '/sistema_barbearia/barbeiro/minha-barbearia/',
     function () {
 
 
@@ -84,7 +84,7 @@ $app->get(
 );
 
 $app->get(
-    '/servicos-agendados/',
+    '/sistema_barbearia/barbeiro/servicos-agendados/',
     function () {
 
 
@@ -109,8 +109,9 @@ $app->get(
     }
 );
 
+
 $app->get(
-    '/cadastrar-servicos/',
+    '/sistema_barbearia/barbeiro/cadastrar-servicos/',
     function () {
 
 
@@ -135,17 +136,19 @@ $app->get(
     }
 );
 
-$app->any('/cadastrar-filiais/', function(){
+
+
+$app->any('/sistema_barbearia/barbeiro/cadastrarFilial/', function(){
     require_once "../barbeiro/conteudo/header.php";
     ?>
     <link rel="stylesheet" href="../barbeiro/css/navbar.css">
     <link rel="stylesheet" href="../barbeiro/css/cadastrar-servicos.css">
     </head>
 
-    <body class="cadastrar-servicos">
+    <body class="cadastrar-filial">
         <?php
         require_once "../barbeiro/conteudo/navbar.php";
-        require_once "../barbeiro/conteudo/filial/cadastrarFilial.php";
+        require_once "../barbeiro/conteudo/cadastrarFilial.php";
         require_once "../barbeiro/conteudo/footer.php";
         require_once "../barbeiro/conteudo/scripts.php";
         ?>
@@ -155,17 +158,17 @@ $app->any('/cadastrar-filiais/', function(){
     <?php
 });
 
-$app->any('/cadastrar-cabeleleiro/', function(){
+$app->any('/sistema_barbearia/barbeiro/cadastrarCabeleleiro/', function(){
     require_once "../barbeiro/conteudo/header.php";
     ?>
     <link rel="stylesheet" href="../barbeiro/css/navbar.css">
     <link rel="stylesheet" href="../barbeiro/css/cadastrar-servicos.css">
     </head>
 
-    <body class="cadastrar-servicos">
+    <body class="cadastrar-cabeleleiro">
         <?php
         require_once "../barbeiro/conteudo/navbar.php";
-        require_once "../barbeiro/conteudo/cabeleleiro/cadastrarCabeleleiro.php";
+        require_once "../barbeiro/conteudo/cadastrarCabeleleiro.php";
         require_once "../barbeiro/conteudo/footer.php";
         require_once "../barbeiro/conteudo/scripts.php";
         ?>
@@ -174,11 +177,10 @@ $app->any('/cadastrar-cabeleleiro/', function(){
     </html>
     <?php
 });
-
 
 
 $app->post(
-    '/minha-barbearia/',
+    '/sistema_barbearia/barbeiro/minha-barbearia',
     function () {
         if (isset($_POST['salvar'])) {
             $cep = $_POST['cep'];
@@ -192,7 +194,7 @@ $app->post(
             $id = $_POST['id'];
 
 
-            $conn = mysqli_connect("localhost", "root", "", "barbearia");
+            $conn = mysqli_connect("localhost", "root", "", "dbtcc");
             $update = "UPDATE barbearia SET nome_dono='$nome_dono', nome_barbearia='$nome_barbearia', email_dono='$email_dono', uf='$uf', cidade='$cidade', cep='$cep', bairro='$bairro', num_bar='$number' WHERE barbearia_id='$id'";
             $result = $conn->query($update);
         }
@@ -201,7 +203,7 @@ $app->post(
             $id = $_POST['id'];
             $cep = $_POST['cep'];
 
-            $conn = mysqli_connect("localhost", "root", "", "barbearia");
+            $conn = mysqli_connect("localhost", "root", "", "dbtcc");
             $update = "UPDATE barbearia SET sobre_barber='$_POST[sobreBarber]' WHERE barbearia_id='$id'";
             $result = mysqli_query($conn, $update);
         }
@@ -210,7 +212,7 @@ $app->post(
             echo 'entrou if';
             $id = $_POST['aplicar'];
 
-            $conn = mysqli_connect("localhost", "root", "", "barbearia");
+            $conn = mysqli_connect("localhost", "root", "", "dbtcc");
             $update = "UPDATE barbearia SET horario_abertura='$_POST[horario_abertura]', horario_fechamento='$_POST[horario_fechamento]', horario_abertura_final_semana='$_POST[horario_abertura_final_semana]', horario_fechamento_final_semana='$_POST[horario_fechamento_final_semana]' WHERE barbearia_id='$id'";
             $result = mysqli_query($conn, $update);
         }
@@ -221,9 +223,9 @@ $app->post(
 );
 
 $app->post(
-    '/servicos-agendados/',
+    '/sistema_barbearia/barbeiro/servicos-agendados',
     function () {
-        $conn = mysqli_connect("localhost", "root", "", "barbearia");
+        $conn = mysqli_connect("localhost", "root", "", "dbtcc");
         $id = $_POST['gg'];
         $update = "UPDATE agendamento SET `status`= 'F' WHERE id_agendamento = '$id'";
         $query = $conn->query($update);
@@ -242,7 +244,7 @@ $app->post(
 
 
 $app->post(
-    '/minha-barbearia/teste/',
+    '/sistema_barbearia/barbeiro/minha-barbearia/teste',
     function () {
 ?>
 
