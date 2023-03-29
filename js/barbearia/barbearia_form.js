@@ -136,7 +136,11 @@ $(document).ready(function(){
             for(const cab of cabeleleiros){
                 const filiais = cab[4].split(',');
                 if(parseInt(cab[4]) === parseInt(data.id))
+<<<<<<< HEAD
                 options = options + `<option value='${cab[0]}'>${cab[1]}</option>`;
+=======
+                    options = options + `<option value='${cab[0]}'>${cab[1]}</option>`;
+>>>>>>> 02e9dcea34cb572a047bc63c5684a7f218fe9d0e
             }
 
             $("#cabeleleiro").html(options);

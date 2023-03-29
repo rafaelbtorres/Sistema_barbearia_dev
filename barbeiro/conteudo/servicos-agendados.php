@@ -28,6 +28,25 @@ $query = $conn->query($select);
             <tbody id="agend">
                 <?php
                 while ($dados = mysqli_fetch_assoc($query)) {
+<<<<<<< HEAD
+=======
+                    
+                    $cab = null;
+                    $filial = $null;
+
+                    if($dados["cabeleleiro"] != null){
+                        $cab = $mysqli->query("SELECT * FROM cabeleleiros WHERE id = {$dados["cabeleleiro"]}");
+                        if($cab !== false)
+                            $cab = $cab->fetch_assoc();
+                    }
+
+                    if($dados["filial"] != null){
+                        $filial = $mysqli->query("SELECT * FROM filial WHERE id = {$dados["filial"]}");
+                        if($filial !== false)
+                            $filial = $filial->fetch_assoc();
+                    }
+
+>>>>>>> 02e9dcea34cb572a047bc63c5684a7f218fe9d0e
                 ?>
                     <tr>
                         <td><?php echo $dados['id_agendamento'] ?></td>

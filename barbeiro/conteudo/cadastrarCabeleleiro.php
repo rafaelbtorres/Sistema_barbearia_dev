@@ -36,8 +36,13 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
 
 }
 
+<<<<<<< HEAD:barbeiro/conteudo/cadastrarCabeleleiro.php
     $filiais = $mysqli->query("SELECT * FROM filial WHERE barbearia = '" . $_SESSION["barbearia_id"] . "'");
     if($filiais)
+=======
+$filiais = $mysqli->query("SELECT * FROM filial WHERE barbearia = '" . $_SESSION["barbearia_id"] . "'");
+if($filiais)
+>>>>>>> 02e9dcea34cb572a047bc63c5684a7f218fe9d0e:barbeiro/conteudo/cabeleleiro/cadastrarCabeleleiro.php
     $filiais = $filiais->fetch_all(MYSQLI_ASSOC);
 
 ?>
@@ -83,7 +88,11 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
                                             <td>
                                                 
                                                 <a 
+<<<<<<< HEAD:barbeiro/conteudo/cadastrarCabeleleiro.php
                                                     href='?cabeleleiro={$cabel["id"]}'
+=======
+                                                    href='?cabeleleiro={$cabel["id"]}' 
+>>>>>>> 02e9dcea34cb572a047bc63c5684a7f218fe9d0e:barbeiro/conteudo/cabeleleiro/cadastrarCabeleleiro.php
                                                     class='btn btn-sm btn-primary inativar-filial'
                                                     title='Editar'
                                                     filial='{$cabel["id"]}'
@@ -175,7 +184,11 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
                     
                 </div>
                 <?php if(isset($cab["id"]) && !isset($_GET['acao'])): ?>
+<<<<<<< HEAD:barbeiro/conteudo/cadastrarCabeleleiro.php
                 <a href="cadastrarCabeleleiro" target="_self"
+=======
+                <a href="cadastrar-cabeleleiro" target="_self"
+>>>>>>> 02e9dcea34cb572a047bc63c5684a7f218fe9d0e:barbeiro/conteudo/cabeleleiro/cadastrarCabeleleiro.php
                     class="btn btn-danger mt-4"
                     name="adicionar_servico"
                 >
